@@ -22,15 +22,14 @@ public class PostfixCalc implements Calc {
             if (isNumber(token)) {
                 stack.push(Double.parseDouble(token));
             } else {
-                if (stack.isEmpty()) {
+                double val1;
+                double val2;
+                try {
+                    val1 = stack.pop();
+                    val2 = stack.pop();
+                } catch (RuntimeException e) {
                     throw new IllegalArgumentException("Expresión mal formada");
                 }
-                double val1 = stack.pop();
-
-                if (stack.isEmpty()) {
-                    throw new IllegalArgumentException("Expresión mal formada");
-                }
-                double val2 = stack.pop();
 
                 double result = 0;
                 switch (token) {
@@ -59,11 +58,11 @@ public class PostfixCalc implements Calc {
             }
         }
 
-        if (stack.isEmpty()) {
+        try {
+            return stack.pop();
+        } catch (RuntimeException e) {
             throw new IllegalArgumentException("Expresión inválida");
         }
-
-        return stack.pop();
     }
 
     /** Separa el string por espacios manualmente. */

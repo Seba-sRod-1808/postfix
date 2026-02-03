@@ -9,7 +9,6 @@ public class ArrayStackTest {
         testPush();
         testPop();
         testPeek();
-        testIsEmpty();
         testPopEmptyStack();
         testPeekEmptyStack();
     }
@@ -19,7 +18,7 @@ public class ArrayStackTest {
         stack.push(5);
         stack.push(10);
         assert stack.peek() == 10 : "testPush failed";
-        System.out.println("[PASS] testPush");
+        System.out.println("testPush pasó");
     }
 
     static void testPop() {
@@ -28,7 +27,7 @@ public class ArrayStackTest {
         stack.push(10);
         assert stack.pop() == 10 : "testPop failed";
         assert stack.peek() == 5 : "testPop failed";
-        System.out.println("[PASS] testPop");
+        System.out.println("testPop pasó");
     }
 
     static void testPeek() {
@@ -36,17 +35,7 @@ public class ArrayStackTest {
         stack.push(5);
         assert stack.peek() == 5 : "testPeek failed";
         assert stack.peek() == 5 : "testPeek should not remove";
-        System.out.println("[PASS] testPeek");
-    }
-
-    static void testIsEmpty() {
-        ArrayStack<Integer> stack = new ArrayStack<>();
-        assert stack.isEmpty() : "should be empty";
-        stack.push(5);
-        assert !stack.isEmpty() : "should not be empty";
-        stack.pop();
-        assert stack.isEmpty() : "should be empty after pop";
-        System.out.println("[PASS] testIsEmpty");
+        System.out.println("testPeek pasó");
     }
 
     static void testPopEmptyStack() {
@@ -55,7 +44,7 @@ public class ArrayStackTest {
             stack.pop();
             assert false : "should throw";
         } catch (RuntimeException e) {
-            System.out.println("[PASS] testPopEmptyStack");
+            System.out.println("testPopEmptyStack pasó");
         }
     }
 
@@ -65,7 +54,7 @@ public class ArrayStackTest {
             stack.peek();
             assert false : "should throw";
         } catch (RuntimeException e) {
-            System.out.println("[PASS] testPeekEmptyStack");
+            System.out.println("testPeekEmptyStack pasó");
         }
     }
 }

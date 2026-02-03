@@ -1,11 +1,11 @@
 package src;
 
 /**
- * Interfaz para calculadoras matemáticas.
+ * Interfaz para calculadora de postfix.
  */
 public interface Calc {
     /**
-     * Evalúa una expresión matemática.
+     * Evalúa una expresión en postfix.
      */
     public double operate(String input);
 }

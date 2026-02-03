@@ -22,14 +22,14 @@ public class ReadFileTest {
         List<String> lines = ReadFile.readExpressions(TEST_FILE);
         assert lines.size() == 3 : "should have 3 lines";
         assert lines.get(0).equals("3 4 +") : "first line wrong";
-        System.out.println("[PASS] testReadValidFile");
+        System.out.println("testReadValidFile pasó");
     }
 
     static void testReadEmptyLines() throws Exception {
         createFile("3 4 +\n\n5 6 *\n   \n2 3 ^");
         List<String> lines = ReadFile.readExpressions(TEST_FILE);
         assert lines.size() == 3 : "should skip empty lines";
-        System.out.println("[PASS] testReadEmptyLines");
+        System.out.println("testReadEmptyLines pasó");
     }
 
     static void testFileNotFound() {
@@ -37,7 +37,7 @@ public class ReadFileTest {
             ReadFile.readExpressions("no_existe.txt");
             assert false : "should throw";
         } catch (FileNotFoundException e) {
-            System.out.println("[PASS] testFileNotFound");
+            System.out.println("testFileNotFound pasó");
         }
     }
 

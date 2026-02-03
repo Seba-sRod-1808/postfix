@@ -12,7 +12,4 @@ public interface Stack<T> {
 
     /** Retorna el elemento del tope sin eliminarlo. */
     public T peek();
-
-    /** Verifica si el stack está vacío. */
-    public boolean isEmpty();
 }

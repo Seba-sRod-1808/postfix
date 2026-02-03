@@ -3,7 +3,7 @@ package src;
 import java.util.List;
 
 /**
- * Programa principal para probar la calculadora postfija.
+ * Programa principal para probar la calculadora de postfix.
  */
 public class Main {
 
@@ -19,7 +19,7 @@ public class Main {
                     double result = calculator.operate(expression);
                     System.out.println(expression + " = " + result);
                 } catch (Exception e) {
-                    System.out.println(expression + " -> Error: " + e.getMessage());
+                    System.out.println(expression + "Error: " + e.getMessage());
                 }
             }
         } catch (Exception e) {

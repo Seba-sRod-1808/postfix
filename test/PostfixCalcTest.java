@@ -24,22 +24,22 @@ public class PostfixCalcTest {
         assert calc.operate("4 5 *") == 20 : "multiplication failed";
         assert calc.operate("20 4 /") == 5 : "division failed";
         assert calc.operate("2 3 ^") == 8 : "power failed";
-        System.out.println("[PASS] testBasicOperations");
+        System.out.println("testBasicOperations pasó");
     }
 
     static void testComplexExpression() {
         assert calc.operate("5 1 2 + 4 * + 3 -") == 14 : "complex failed";
-        System.out.println("[PASS] testComplexExpression");
+        System.out.println("testComplexExpression pasó");
     }
 
     static void testDecimals() {
         assert calc.operate("3.5 2 +") == 5.5 : "decimals failed";
-        System.out.println("[PASS] testDecimals");
+        System.out.println("testDecimals pasó");
     }
 
     static void testNegativeNumbers() {
         assert calc.operate("-5 3 +") == -2 : "negative failed";
-        System.out.println("[PASS] testNegativeNumbers");
+        System.out.println("testNegativeNumbers pasó");
     }
 
     static void testDivisionByZero() {
@@ -47,7 +47,7 @@ public class PostfixCalcTest {
             calc.operate("10 0 /");
             assert false : "should throw";
         } catch (ArithmeticException e) {
-            System.out.println("[PASS] testDivisionByZero");
+            System.out.println("testDivisionByZero pasó");
         }
     }
 
@@ -56,7 +56,7 @@ public class PostfixCalcTest {
             calc.operate("");
             assert false : "should throw";
         } catch (IllegalArgumentException e) {
-            System.out.println("[PASS] testEmptyExpression");
+            System.out.println("testEmptyExpression pasó");
         }
     }
 
@@ -65,7 +65,7 @@ public class PostfixCalcTest {
             calc.operate("3 4 %");
             assert false : "should throw";
         } catch (IllegalArgumentException e) {
-            System.out.println("[PASS] testInvalidOperator");
+            System.out.println("testInvalidOperator pasó");
         }
     }
 
@@ -74,7 +74,7 @@ public class PostfixCalcTest {
             calc.operate("3 +");
             assert false : "should throw";
         } catch (IllegalArgumentException e) {
-            System.out.println("[PASS] testMalformedExpression");
+            System.out.println("testMalformedExpression pasó");
         }
     }
 }

@@ -33,9 +33,4 @@ public class ArrayStack<T> implements Stack<T> {
         }
         return items.get(items.size() - 1);
     }
-
-    @Override
-    public boolean isEmpty() {
-        return items.isEmpty();
-    }
 }
