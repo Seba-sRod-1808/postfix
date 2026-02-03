@@ -1,5 +1,11 @@
 package src;
 
+/**
+ * Interfaz para calculadoras matemáticas.
+ */
 public interface Calc {
-    public int operate(String input);
+    /**
+     * Evalúa una expresión matemática.
+     */
+    public double operate(String input);
 }

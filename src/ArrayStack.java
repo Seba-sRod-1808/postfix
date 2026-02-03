@@ -1,7 +1,12 @@
 package src;
+
 import java.util.ArrayList;
 
+/**
+ * Implementación de Stack usando ArrayList.
+ */
 public class ArrayStack<T> implements Stack<T> {
+
     private ArrayList<T> items;
 
     public ArrayStack() {
@@ -15,7 +20,7 @@ public class ArrayStack<T> implements Stack<T> {
 
     @Override
     public T pop() {
-        if(items.isEmpty()) {
+        if (items.isEmpty()) {
             throw new RuntimeException("El stack está vacío");
         }
         return items.remove(items.size() - 1);
@@ -29,8 +34,8 @@ public class ArrayStack<T> implements Stack<T> {
         return items.get(items.size() - 1);
     }
 
+    @Override
     public boolean isEmpty() {
         return items.isEmpty();
     }
 }
-

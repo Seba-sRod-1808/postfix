@@ -1,20 +1,38 @@
 package src;
 
+/**
+ * Calculadora que evalúa expresiones en notación postfija.
+ */
 public class PostfixCalc implements Calc {
 
     @Override
-    public int operate(String input) {
-        String[] tokens = input.split(" ");
-        Stack<Integer> stack = new ArrayStack<>();
+    public double operate(String input) {
+        if (input == null || input.trim().isEmpty()) {
+            throw new IllegalArgumentException("La expresión no puede estar vacía");
+        }
+
+        String[] tokens = splitBySpaces(input.trim());
+        Stack<Double> stack = new ArrayStack<>();
 
         for (String token : tokens) {
-            if (isNumber(token)) {
-                stack.push(Integer.parseInt(token));
-            } else {
-                int val1 = stack.pop();
-                int val2 = stack.pop();
+            if (token.isEmpty()) {
+                continue;
+            }
 
-                int result = 0;
+            if (isNumber(token)) {
+                stack.push(Double.parseDouble(token));
+            } else {
+                if (stack.isEmpty()) {
+                    throw new IllegalArgumentException("Expresión mal formada");
+                }
+                double val1 = stack.pop();
+
+                if (stack.isEmpty()) {
+                    throw new IllegalArgumentException("Expresión mal formada");
+                }
+                double val2 = stack.pop();
+
+                double result = 0;
                 switch (token) {
                     case "+":
                         result = val2 + val1;
@@ -26,10 +44,13 @@ public class PostfixCalc implements Calc {
                         result = val2 * val1;
                         break;
                     case "/":
+                        if (val1 == 0) {
+                            throw new ArithmeticException("División por cero");
+                        }
                         result = val2 / val1;
                         break;
                     case "^":
-                        result = (int) Math.pow(val2, val1);
+                        result = Math.pow(val2, val1);
                         break;
                     default:
                         throw new IllegalArgumentException("Operador no conocido: " + token);
@@ -38,19 +59,66 @@ public class PostfixCalc implements Calc {
             }
         }
 
+        if (stack.isEmpty()) {
+            throw new IllegalArgumentException("Expresión inválida");
+        }
+
         return stack.pop();
     }
 
+    /** Separa el string por espacios manualmente. */
+    private String[] splitBySpaces(String input) {
+        int count = 1;
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == ' ') {
+                count++;
+            }
+        }
+
+        String[] result = new String[count];
+        int index = 0;
+        int start = 0;
+
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == ' ') {
+                result[index] = input.substring(start, i);
+                index++;
+                start = i + 1;
+            }
+        }
+        result[index] = input.substring(start);
+
+        return result;
+    }
+
+    /** Verifica si el token es un número (entero o decimal, positivo o negativo). */
     private boolean isNumber(String token) {
         if (token == null || token.isEmpty()) {
             return false;
         }
-        
-        // Verificar si es un número (puede empezar con -)
-        if (token.charAt(0) == '-' && token.length() > 1) {
-            return token.substring(1).matches("\\d+");
+
+        int start = 0;
+        boolean hasDecimal = false;
+
+        if (token.charAt(0) == '-') {
+            if (token.length() == 1) {
+                return false;
+            }
+            start = 1;
         }
-        
-        return token.matches("\\d+");
+
+        for (int i = start; i < token.length(); i++) {
+            char c = token.charAt(i);
+            if (c == '.') {
+                if (hasDecimal) {
+                    return false;
+                }
+                hasDecimal = true;
+            } else if (c < '0' || c > '9') {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
