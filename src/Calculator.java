@@ -29,7 +29,7 @@ public class Calculator implements Calc {
         }
 
         String[] tokens = splitBySpaces(input.trim());
-        Stack<Double> stack = new StackO<>();
+        Stack<Double> stack = new StackA<>();
 
         for (String token : tokens) {
             if (token.isEmpty()) {

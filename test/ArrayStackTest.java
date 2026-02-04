@@ -1,7 +1,7 @@
 package test;
 
 import src.Stack;
-import src.StackO;
+import src.StackA;
 
 /**
  * Suite de pruebas unitarias para la clase ArrayStack.
@@ -32,7 +32,7 @@ public class ArrayStackTest {
      * Prueba que push agrega elementos correctamente al tope del Stack.
      */
     static void testPush() {
-        Stack<Integer> stack = new StackO<>();
+        Stack<Integer> stack = new StackA<>();
         stack.push(5);
         stack.push(10);
         assert stack.peek() == 10 : "testPush failed";
@@ -43,7 +43,7 @@ public class ArrayStackTest {
      * Prueba que pop remueve y retorna el elemento del tope correctamente.
      */
     static void testPop() {
-        Stack<Integer> stack = new StackO<>();
+        Stack<Integer> stack = new StackA<>();
         stack.push(5);
         stack.push(10);
         assert stack.pop() == 10 : "testPop failed";
@@ -55,7 +55,7 @@ public class ArrayStackTest {
      * Prueba que peek retorna el elemento del tope sin removerlo.
      */
     static void testPeek() {
-        Stack<Integer> stack = new StackO<>();
+        Stack<Integer> stack = new StackA<>();
         stack.push(5);
         assert stack.peek() == 5 : "testPeek failed";
         assert stack.peek() == 5 : "testPeek should not remove";
@@ -66,7 +66,7 @@ public class ArrayStackTest {
      * Prueba que pop lanza excepcion cuando el Stack esta vacio.
      */
     static void testPopEmptyStack() {
-        Stack<Integer> stack = new StackO<>();
+        Stack<Integer> stack = new StackA<>();
         try {
             stack.pop();
             assert false : "should throw";
@@ -79,7 +79,7 @@ public class ArrayStackTest {
      * Prueba que peek lanza excepcion cuando el Stack esta vacio.
      */
     static void testPeekEmptyStack() {
-        Stack<Integer> stack = new StackO<>();
+        Stack<Integer> stack = new StackA<>();
         try {
             stack.peek();
             assert false : "should throw";
