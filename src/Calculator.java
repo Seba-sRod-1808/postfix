@@ -28,7 +28,7 @@ public class Calculator implements Calc {
             throw new IllegalArgumentException("La expresión no puede estar vacía");
         }
 
-        String[] tokens = splitBySpaces(input.trim());
+        String[] tokens = input.trim().split(" ");
         Stack<Double> stack = new StackA<>();
 
         for (String token : tokens) {
@@ -80,36 +80,6 @@ public class Calculator implements Calc {
         } catch (RuntimeException e) {
             throw new IllegalArgumentException("Expresión inválida");
         }
-    }
-
-    /**
-     * Separa una cadena de texto en tokens utilizando espacios como delimitador.
-     *
-     * @param input la cadena a separar
-     * @return arreglo de tokens
-     */
-    private String[] splitBySpaces(String input) {
-        int count = 1;
-        for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) == ' ') {
-                count++;
-            }
-        }
-
-        String[] result = new String[count];
-        int index = 0;
-        int start = 0;
-
-        for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) == ' ') {
-                result[index] = input.substring(start, i);
-                index++;
-                start = i + 1;
-            }
-        }
-        result[index] = input.substring(start);
-
-        return result;
     }
 
     /**
