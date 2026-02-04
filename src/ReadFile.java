@@ -7,11 +7,25 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Utilidad para leer expresiones desde archivos de texto.
+ * Clase utilitaria para la lectura de expresiones matematicas desde archivos de texto.
+ * Proporciona metodos estaticos para cargar expresiones linea por linea,
+ * ignorando lineas vacias o que contengan solo espacios en blanco.
+ *
+ * @author Sebastian Rodas
+ * @author Cristopher Chavez
+ * @version 1.0
+ * @since 2/02/2026
  */
 public class ReadFile {
 
-    /** Lee líneas no vacías de un archivo. */
+    /**
+     * Lee todas las lineas no vacias de un archivo de texto.
+     * Las lineas son recortadas antes de ser agregadas a la lista.
+     *
+     * @param filePath la ruta del archivo a leer
+     * @return lista de cadenas con las lineas no vacias del archivo
+     * @throws FileNotFoundException si el archivo no existe o no se puede leer
+     */
     public static List<String> readExpressions(String filePath) throws FileNotFoundException {
         List<String> expressions = new ArrayList<>();
         File file = new File(filePath);

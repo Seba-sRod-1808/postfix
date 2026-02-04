@@ -1,10 +1,27 @@
 package src;
 
 /**
- * Calculadora que evalúa expresiones en notación postfija.
+ * Calculadora que evalua expresiones matematicas en notacion postfix.
+ * Soporta operaciones de suma, resta, multiplicacion, division y potencia.
+ * Utiliza un Stack para procesar los operandos y operadores.
+ *
+ * @author Sebastian Rodas
+ * @author Cristopher Chavez
+ * @version 1.0
+ * @since 2/02/2026
  */
 public class PostfixCalc implements Calc {
 
+    /**
+     * Evalua una expresion en notacion postfija.
+     * Los tokens deben estar separados por espacios.
+     * Operadores soportados: +, -, *, /, ^
+     *
+     * @param input la expresion postfix a evaluar
+     * @return el resultado de la evaluacion
+     * @throws IllegalArgumentException si la expresion esta vacia, mal formada o tiene operador desconocido
+     * @throws ArithmeticException si se intenta dividir por cero
+     */
     @Override
     public double operate(String input) {
         if (input == null || input.trim().isEmpty()) {
@@ -65,7 +82,12 @@ public class PostfixCalc implements Calc {
         }
     }
 
-    /** Separa el string por espacios manualmente. */
+    /**
+     * Separa una cadena de texto en tokens utilizando espacios como delimitador.
+     *
+     * @param input la cadena a separar
+     * @return arreglo de tokens
+     */
     private String[] splitBySpaces(String input) {
         int count = 1;
         for (int i = 0; i < input.length(); i++) {
@@ -90,7 +112,13 @@ public class PostfixCalc implements Calc {
         return result;
     }
 
-    /** Verifica si el token es un número (entero o decimal, positivo o negativo). */
+    /**
+     * Verifica si un token representa un numero valido.
+     * Acepta numeros enteros, decimales, positivos y negativos.
+     *
+     * @param token el token a verificar
+     * @return true si el token es un numero valido, false en caso contrario
+     */
     private boolean isNumber(String token) {
         if (token == null || token.isEmpty()) {
             return false;

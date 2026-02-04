@@ -3,12 +3,26 @@ package src;
 import java.util.List;
 
 /**
- * Programa principal para probar la calculadora de postfix.
+ * Clase principal que ejecuta la calculadora de expresiones postfijas.
+ * Lee expresiones desde un archivo de texto y muestra los resultados
+ * de cada evaluacion en la consola.
+ *
+ * @author Sebastian Rodas
+ * @author Cristopher Chavez
+ * @version 1.0
+ * @since 2/02/2026
  */
 public class Main {
 
+    /**
+     * Punto de entrada de la aplicacion.
+     * Lee expresiones del archivo especificado
+     * y evalua cada una mostrando el resultado.
+     *
+     * @param args argumentos de linea de comandos, args[0] es la ruta del archivo opcional
+     */
     public static void main(String[] args) {
-        String filePath = args.length > 0 ? args[0] : "datos.txt";
+        String filePath = args.length > 0 ? args[0] : "datos.txt"; // si el usuario pasa un archivo, usarlo, si no, usar  el archivo.
         Calc calculator = new PostfixCalc();
 
         try {

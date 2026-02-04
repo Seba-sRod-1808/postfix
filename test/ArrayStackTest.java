@@ -3,8 +3,23 @@ package test;
 import src.ArrayStack;
 import src.Stack;
 
+/**
+ * Suite de pruebas unitarias para la clase ArrayStack.
+ * Verifica el correcto funcionamiento de las operaciones push, pop y peek,
+ * incluyendo casos de excepcion cuando el Stack esta vacio.
+ *
+ * @author Sebastian Rodas
+ * @author Cristopher Chavez
+ * @version 1.0
+ * @since 03/02/2026
+ */
 public class ArrayStackTest {
 
+    /**
+     * Metodo principal que ejecuta todas las pruebas de ArrayStack.
+     *
+     * @param args argumentos de linea de comandos (no utilizados)
+     */
     public static void main(String[] args) {
         testPush();
         testPop();
@@ -13,6 +28,9 @@ public class ArrayStackTest {
         testPeekEmptyStack();
     }
 
+    /**
+     * Prueba que push agrega elementos correctamente al tope del Stack.
+     */
     static void testPush() {
         Stack<Integer> stack = new ArrayStack<>();
         stack.push(5);
@@ -21,6 +39,9 @@ public class ArrayStackTest {
         System.out.println("testPush pasó");
     }
 
+    /**
+     * Prueba que pop remueve y retorna el elemento del tope correctamente.
+     */
     static void testPop() {
         Stack<Integer> stack = new ArrayStack<>();
         stack.push(5);
@@ -30,6 +51,9 @@ public class ArrayStackTest {
         System.out.println("testPop pasó");
     }
 
+    /**
+     * Prueba que peek retorna el elemento del tope sin removerlo.
+     */
     static void testPeek() {
         Stack<Integer> stack = new ArrayStack<>();
         stack.push(5);
@@ -38,6 +62,9 @@ public class ArrayStackTest {
         System.out.println("testPeek pasó");
     }
 
+    /**
+     * Prueba que pop lanza excepcion cuando el Stack esta vacio.
+     */
     static void testPopEmptyStack() {
         Stack<Integer> stack = new ArrayStack<>();
         try {
@@ -48,6 +75,9 @@ public class ArrayStackTest {
         }
     }
 
+    /**
+     * Prueba que peek lanza excepcion cuando el Stack esta vacio.
+     */
     static void testPeekEmptyStack() {
         Stack<Integer> stack = new ArrayStack<>();
         try {
