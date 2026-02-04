@@ -65,6 +65,7 @@ public class StackO<T> implements Stack<T> {
      * @throws RuntimeException si el Stack esta vacio
      */
     @Override
+    @SuppressWarnings("unchecked")
     public T peek() {
         if (size == 0) {
             throw new RuntimeException("El stack está vacío");

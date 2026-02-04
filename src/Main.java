@@ -22,7 +22,7 @@ public class Main {
      * @param args argumentos de linea de comandos, args[0] es la ruta del archivo opcional
      */
     public static void main(String[] args) {
-        String filePath = args.length > 0 ? args[0] : "datos.txt"; // si el usuario pasa un archivo, usarlo, si no, usar  el archivo.
+        String filePath = "datos.txt";
         Calc calculator = new Calculator();
 
         try {
