@@ -10,7 +10,7 @@ package src;
  * @version 1.0
  * @since 2/02/2026
  */
-public class PostfixCalc implements Calc {
+public class Calculator implements Calc {
 
     /**
      * Evalua una expresion en notacion postfija.
@@ -29,7 +29,7 @@ public class PostfixCalc implements Calc {
         }
 
         String[] tokens = splitBySpaces(input.trim());
-        Stack<Double> stack = new ArrayStack<>();
+        Stack<Double> stack = new StackO<>();
 
         for (String token : tokens) {
             if (token.isEmpty()) {

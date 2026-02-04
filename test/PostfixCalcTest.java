@@ -1,7 +1,7 @@
 package test;
 
 import src.Calc;
-import src.PostfixCalc;
+import src.Calculator;
 
 /**
  * Suite de pruebas unitarias para la clase PostfixCalc.
@@ -16,7 +16,7 @@ import src.PostfixCalc;
  */
 public class PostfixCalcTest {
 
-    static Calc calc = new PostfixCalc();
+    static Calc calc = new Calculator();
 
     /**
      * Metodo principal que ejecuta todas las pruebas de PostfixCalc.

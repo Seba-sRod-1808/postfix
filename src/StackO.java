@@ -12,14 +12,14 @@ import java.util.ArrayList;
  * @since 2/02/2026
  * @param <T> el tipo de elementos que almacena el Stack
  */
-public class ArrayStack<T> implements Stack<T> {
+public class StackO<T> implements Stack<T> {
 
     private ArrayList<T> items;
 
     /**
      * Constructor que inicializa un Stack vacio.
      */
-    public ArrayStack() {
+    public StackO() {
         items = new ArrayList<>();
     }
 

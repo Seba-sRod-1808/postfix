@@ -23,7 +23,7 @@ public class Main {
      */
     public static void main(String[] args) {
         String filePath = args.length > 0 ? args[0] : "datos.txt"; // si el usuario pasa un archivo, usarlo, si no, usar  el archivo.
-        Calc calculator = new PostfixCalc();
+        Calc calculator = new Calculator();
 
         try {
             List<String> expressions = ReadFile.readExpressions(filePath);
